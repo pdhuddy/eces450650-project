@@ -1,0 +1,11 @@
+*.out
+*.png
+*.npz
+*.npy
+*.pt
+*.pkl
+*.fasta
+*.hdf5
+*.json
+/TAPE/model/*
+
