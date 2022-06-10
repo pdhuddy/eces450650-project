@@ -7,9 +7,9 @@ data = np.load('/ifs/groups/eces450650Grp/ECES450650_SP22/projectE/ESM/for_class
 
 print('clustering data')
 #clustering = AgglomerativeClustering(n_clusters=2027).fit(data)
-clustering = AgglomerativeClustering(n_clusters=316,affinity='cosine',linkage='average').fit(data)
+clustering = AgglomerativeClustering(n_clusters=2027).fit(data)
 
 
 print('saving model')
-pickle.dump(clustering, open('models/hier_euc_ESM_cos.pkl', 'wb'))
+pickle.dump(clustering, open('models/hier_euc_ESM_def.pkl', 'wb'))
 

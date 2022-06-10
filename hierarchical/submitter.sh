@@ -19,5 +19,5 @@
 
 module load python/anaconda3
 
-#python3 hier.py
-python3 results.py
+python3 hier.py
+#python3 results.py

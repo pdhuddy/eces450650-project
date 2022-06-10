@@ -24,9 +24,9 @@ print('loading data')
 data = np.load('/ifs/groups/eces450650Grp/ECES450650_SP22/projectE/ESM/for_classifier.npy')
 
 print('clustering data')
-#clustering = DBSCAN(eps=0.5, min_samples=10).fit(data)
-clustering =DBSCAN().fit(data)
+clustering = DBSCAN(eps=0.25).fit(data)
+#clustering =DBSCAN().fit(data)
 
 print('saving model')
-pickle.dump(clustering, open('models/dbscan_d5_10_ESM.pkl', 'wb'))
+pickle.dump(clustering, open('models/dbscan_d25_ESM.pkl', 'wb'))
 

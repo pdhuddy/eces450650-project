@@ -9,7 +9,7 @@ import numpy as np
 import pickle
 
 #db = pickle.load(open('models/hier_euc.pkl', 'rb'))
-db = pickle.load(open('models/hier_euc_ESM_cos.pkl','rb'))
+db = pickle.load(open('models/hier_euc_ESM_def.pkl','rb'))
 #X = np.load('data_sorted.npy')
 X = np.load('/ifs/groups/eces450650Grp/ECES450650_SP22/projectE/ESM/for_classifier.npy')
 #core_samples_mask = np.zeros_like(db.labels_, dtype=bool)

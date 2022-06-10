@@ -23,6 +23,7 @@ def read_pt_file(file_path):
 
 def get_label(file_path):
     output = torch.load(file_path)
+    print(output)
     out = output['label'].split('.')
     outnp = out[0][-1]+"."+out[1]+"."+out[2]+"."+out[3]
     outarr = outnp
@@ -33,7 +34,7 @@ label_dict = {}
 counter =0
 file_count = 0
 
-labels = 0
+labels = []
 firstTime = True
 print(len(os.listdir()))
 file_dir = os.listdir()
@@ -45,14 +46,15 @@ for file in os.listdir():
         file_path = f"{path}/{file}"
 
         # call read file function
-        file_embedding = read_pt_file(file_path)
-        embedding.append(file_embedding)
+        #file_embedding = read_pt_file(file_path)
+        #embedding.append(file_embedding)
         #if (firstTime == True):
          #   embedding = read_pt_file(file_path)
         key = get_label(file_path)
-        label_dict[key] = counter
-        labels = label_dict[key]
-        counter= counter +1
+
+        #label_dict[key] = counter
+        #labels = label_dict[key]
+        #counter= counter +1
             
             #size = len(labels)
             #labels = np.chararray((1,size))
@@ -66,18 +68,21 @@ for file in os.listdir():
         if key not in label_dict.keys():
             label_dict[key] = counter
             counter = counter +1
-        np.append(labels,label_dict[key])
+        labels.append(label_dict[key])
+        #np.append(labels,label_dict[key])
 
         file_count = file_count+1
+ #       if file_count >5:
+  #          break
 
-
+#print(labels)
 
 path = "/ifs/groups/eces450650Grp/ECES450650_SP22/projectE/ESM"
 os.chdir(path)
-print(file_count)
-#print(embedding.size)
+#print(file_count)
+print(embedding.size)
 #print(labels.size)
-embedding_np = np.array(embedding)
-np.savez('for_classifier.npz',embedding_np)
-np.save('for_classifier.npy', embedding_np)
-np.save('labels.npy', labels)
+labels_np = np.array(labels)
+#np.savez('for_classifier.npz',embedding_np)
+#np.save('for_classifier.npy', embedding_np)
+np.save('labels.npy', labels_np)
